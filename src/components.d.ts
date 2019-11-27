@@ -12,20 +12,7 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 export namespace Components {
   interface ItemCollapse {
     'open': boolean;
-  }
-  interface MyComponent {
-    /**
-    * The first name
-    */
-    'first': string;
-    /**
-    * The last name
-    */
-    'last': string;
-    /**
-    * The middle name
-    */
-    'middle': string;
+    'title': string;
   }
 }
 
@@ -37,40 +24,19 @@ declare global {
     prototype: HTMLItemCollapseElement;
     new (): HTMLItemCollapseElement;
   };
-
-  interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {}
-  var HTMLMyComponentElement: {
-    prototype: HTMLMyComponentElement;
-    new (): HTMLMyComponentElement;
-  };
   interface HTMLElementTagNameMap {
     'item-collapse': HTMLItemCollapseElement;
-    'my-component': HTMLMyComponentElement;
   }
 }
 
 declare namespace LocalJSX {
   interface ItemCollapse {
     'open'?: boolean;
-  }
-  interface MyComponent {
-    /**
-    * The first name
-    */
-    'first'?: string;
-    /**
-    * The last name
-    */
-    'last'?: string;
-    /**
-    * The middle name
-    */
-    'middle'?: string;
+    'title'?: string;
   }
 
   interface IntrinsicElements {
     'item-collapse': ItemCollapse;
-    'my-component': MyComponent;
   }
 }
 
@@ -81,7 +47,6 @@ declare module "@stencil/core" {
   export namespace JSX {
     interface IntrinsicElements {
       'item-collapse': LocalJSX.ItemCollapse & JSXBase.HTMLAttributes<HTMLItemCollapseElement>;
-      'my-component': LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
     }
   }
 }

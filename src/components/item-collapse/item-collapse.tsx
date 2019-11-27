@@ -1,4 +1,4 @@
-import { Component, Prop, h, Host, Watch } from "@stencil/core";
+import { Component, Prop, h, Watch } from "@stencil/core";
 
 @Component({
   tag: "item-collapse",
@@ -7,6 +7,8 @@ import { Component, Prop, h, Host, Watch } from "@stencil/core";
 export class itemCollapse {
 
   @Prop({reflect: true, mutable: true}) open: boolean;
+  @Prop({reflect: true, mutable: true}) title: string;
+
   main!: HTMLElement;
   content!: HTMLElement;
   icon!: HTMLElement;
@@ -64,7 +66,7 @@ export class itemCollapse {
     return (
       <article class="item-collapse__container">
         <header class="item-collapse__header" onClick={() => this.toggle()}>
-          <h3 class="item-collapse__title">Title</h3>
+    <h3 class="item-collapse__title">{this.title}</h3>
           <i class="item-collapse__icon" ref={el => this.icon = el as HTMLElement}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -84,7 +86,7 @@ export class itemCollapse {
         </header>
         <main class="item-collapse__main" ref={el => this.main = el as HTMLElement}>
           <section class="item-collapse__content" ref={el => this.content = el as HTMLElement}>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo, possimus quas magnam fugit officiis suscipit. Sequi ipsam, est at consequatur molestias aperiam rem dicta corporis qui fugit aliquam atque odit.
+           <slot></slot>
           </section>
         </main>
       </article>

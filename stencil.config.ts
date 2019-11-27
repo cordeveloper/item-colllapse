@@ -16,3 +16,8 @@ export const config: Config = {
     }
   ]
 };
+
+export const devServer = {
+  root: 'www',
+  watchGlob: '**/**'
+}
